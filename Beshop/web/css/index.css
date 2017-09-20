@@ -1,0 +1,94 @@
+h2 {
+    display: inline-block;
+    margin: 0px;
+    font-size: 25px;
+}
+
+img {
+    display: inline-block;
+}
+
+.mainicon {
+    float: left;
+}
+
+.user_info{
+    float: right;
+}
+ul {
+    padding-left: 0px;
+    font-size: 0px;
+    margin-bottom: 0px;
+}
+.user_info li{
+    font-size: 20px;
+    margin-right: 20px;
+}
+ul li {
+    font: 14px/60px 'Microsoft YaHei';
+    display: inline-block;
+    cursor: pointer;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+}
+
+.carousel-control.right, .carousel-control.left {
+    background-image: none;
+}
+
+.navbar {
+    margin-bottom: 10px;
+}
+
+.slider_container {
+    padding: 0px;
+    margin-bottom: 10px;
+}
+
+.category_title_img{
+    margin-top: 2px;
+}
+
+.thumbnail{
+    border:0px;
+    margin-bottom: 0px;
+}
+
+.item_price{
+    color: red;
+}
+
+.item_middle_img{
+    margin:0 auto;
+}
+.web_info li{
+    font: 14px/14px 'Microsoft YaHei';
+    margin-right: 15px;
+}
+.web_info li a{
+    font-size: 14px;
+    color: white;
+}
+
+.foot_info{
+    background-color: #333333;
+}
+
+.foot_info .copyright_info{
+    color: white;
+}
+
+.foot_info .row{
+    margin: 10px 0px;
+}
+
+.foot_info em{
+    font-style:normal;
+}

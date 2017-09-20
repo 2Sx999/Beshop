@@ -1,0 +1,21 @@
+.required_star{
+    color: red;
+}
+
+.register_form{
+    margin-top: 10px;
+}
+
+.captcha_img{
+    margin-top: 5px;
+}
+
+.form_big_container{
+    background: url(../img/regist_bg.jpg) repeat;
+}
+
+.form_container{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: white;
+}
