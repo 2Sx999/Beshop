@@ -11,7 +11,6 @@
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/jquery.validate.min.js"></script>
-		<script src="js/register.js"></script>
 		<!-- 引入自定义css文件 style.css -->
 		<link rel="stylesheet" href="css/style.css" type="text/css" />
 		<style>

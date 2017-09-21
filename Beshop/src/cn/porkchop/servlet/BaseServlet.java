@@ -33,7 +33,11 @@ public class BaseServlet extends HttpServlet{
         try {
             //获得指定方法的对象
             Method method = clazz.getMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
-            String string = (String) method.invoke(this, req, resp);
+            String string = (String) method.invoke(this, req, resp);//返回值示例  "forward:/index"
+            if(string==null){
+                //没有返回视图,直接return;
+                return;
+            }
             String[] s = string.split(":");
             if("forward".equals(s[0])){
                 //转发
@@ -43,7 +47,8 @@ public class BaseServlet extends HttpServlet{
                 resp.sendRedirect(req.getContextPath()+s[1]+".jsp");
             }
         } catch (NoSuchMethodException e) {
-            e.printStackTrace();
+            //没有这个方法,返回首页
+            resp.sendRedirect(req.getContextPath()+"/index.jsp");
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {

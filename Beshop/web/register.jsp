@@ -14,7 +14,107 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/register.js"></script>
+    <script>
+        $(function () {
+            //自定义校验规则
+            $.validator.addMethod(
+                "checkUserName",
+                function (value, element, params) {
+                    flag = true;
+                    $.ajax({
+                        async: false,
+                        url: "${pageContext.request.contextPath}/register.php",
+                        data: {method: "checkUserName", username: value},
+                        type: "POST",
+                        dataType: "json",
+                        success: function (data) {
+                            flag = data.isExist;
+                        }
+                    });
+
+                    //返回false代表该校验器不通过
+                    return !flag;
+                }
+            );
+
+            $("#register_form").validate({
+                rules: {
+                    username: {
+                        required: true,
+                        rangelength: [3, 12],
+                        checkUserName:true
+                    },
+                    password: {
+                        required: true,
+                        minlength: 4
+                    },
+                    ckpassword: {
+                        required: true,
+                        equalTo: "#password"
+                    },
+                    email: {
+                        required: true,
+                        email: true,
+                    },
+                    name: {
+                        required: true,
+                        rangelength: [3, 12]
+                    },
+                    sex: {
+                        required: true,
+                    },
+                    birthday: {
+                        required: true,
+                    },
+                    captcha: {
+                        required: true,
+                    }
+
+                },
+                messages: {
+                    username: {
+                        required: "用户名不能为空",
+                        rangelength: "用户名长度必须在3到12之间",
+                        checkUserName:"用户名已存在"
+                    },
+                    password: {
+                        required: "密码不能为空",
+                        minlength: "密码长度必须大于4"
+                    },
+                    ckpassword: {
+                        required: "请再次输入密码",
+                        equalTo: "密码必须相同"
+                    },
+                    email: {
+                        required: "邮箱不能为空",
+                        email: "请输入正确的邮箱"
+                    },
+                    name: {
+                        required: "昵称不能为空",
+                        rangelength: "昵称长度必须在3到12之间"
+                    },
+                    sex: {
+                        required: "请选择性别"
+                    },
+                    birthday: {
+                        required: "请输入生日"
+                    },
+                    captcha: {
+                        required: "请输入验证码",
+                    }
+                },
+                errorPlacement: function (error, element) {
+                    error.appendTo(element.parent());
+                    $(error).css({color: "red"});
+                }
+            });
+
+        });
+
+
+    </script>
 </head>
+
 <body>
 <jsp:include page="/header.jsp"/>
 
@@ -23,7 +123,7 @@
     <div class="container ">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 form_container">
-                <form class="form-horizontal register_form" id="register_form">
+                <form class="form-horizontal register_form" id="register_form" action="${pageContext.request.contextPath}/register.php?method=register" method="post">
                     <div class="form-group">
                         <div class="col-xs-12">
                             <h1>用户注册
@@ -62,23 +162,22 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="nickname" class="col-sm-2 control-label">昵称<span
+                        <label for="name" class="col-sm-2 control-label">昵称<span
                                 class="required_star">*</span></label>
                         <div class="col-sm-10">
-                            <input class="form-control" id="nickname" placeholder="请输入昵称" name="nickname">
+                            <input class="form-control" id="name" placeholder="请输入昵称" name="name">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">性别<span class="required_star">*</span></label>
                         <div class="col-sm-10">
                             <label class="radio-inline">
-                                <input type="radio" name="sex" id="male" value="1"> 男
+                                <input type="radio" name="sex" id="male" value="male"> 男
                             </label>
                             <label class="radio-inline">
                                 <input type="radio" name="sex" id="female" value="0"> 女
                             </label>
-                            <label class="error radio-inline" for="sex"
-                                   style="color: red;font-weight: bold"></label>
+                            <label class="error radio-inline" for="sex"  style="color: red;font-weight: bold"></label>
                         </div>
                     </div>
                     <div class="form-group">
