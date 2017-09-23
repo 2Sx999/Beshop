@@ -15,8 +15,16 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>cn.porkchop.servlet.RegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>cn.porkchop.servlet.LoginNLogoutServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register.php</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/loginandlogout.php</url-pattern>
     </servlet-mapping>
 </web-app>

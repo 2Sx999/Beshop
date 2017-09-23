@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>对不起，注册失败，请联系管理员 010-68888888</h2>
+	<h2>对不起，注册失败，请联系管理员</h2>
+	<div>
+		<span><a href="${pageContext.request.contextPath}/index.jsp">返回首页</a></span>&nbsp;&nbsp;&nbsp;
+	</div>
 </body>
 </html>

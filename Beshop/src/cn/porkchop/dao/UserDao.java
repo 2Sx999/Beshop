@@ -11,4 +11,8 @@ public interface UserDao {
     int insertAll(User user) throws SQLException;
 
     int updateUserStateByCode(String activatecode) throws SQLException;
+
+    User login(User user) throws SQLException;
+
+    long findStateByUsername(User user) throws SQLException;
 }

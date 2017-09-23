@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!--顶部商标与用户信息-->
@@ -7,9 +8,17 @@
             <!--60*60的商标-->
             <img src="img/yuan.gif" class="img-responsive mainicon"/>
             <ul class="user_info">
-                <li><a href="${pageContext.request.contextPath}/login.jsp" >登陆</a></li>
-                <li><a href="${pageContext.request.contextPath}/register.jsp">注册</a></li>
-                <li><a href="${pageContext.request.contextPath}/cart.jsp">购物车</a></li>
+                <c:if test="${sessionScope.user==null}">
+                    <li><a href="${pageContext.request.contextPath}/login.jsp">登陆</a></li>
+                    <li><a href="${pageContext.request.contextPath}/register.jsp">注册</a></li>
+                    <li><a href="${pageContext.request.contextPath}/cart.jsp">购物车</a></li>
+                </c:if>
+                <c:if test="${sessionScope.user!=null}">
+                    <li><a href="${pageContext.request.contextPath}/index.jsp">${sessionScope.user.username}</a></li>
+                    <li><a href="${pageContext.request.contextPath}/cart.jsp">购物车</a></li>
+                    <li><a href="${pageContext.request.contextPath}/loginandlogout.php?method=logout">退出</a></li>
+
+                </c:if>
             </ul>
         </div>
     </div>
@@ -24,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">首页</a>
+            <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">首页</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

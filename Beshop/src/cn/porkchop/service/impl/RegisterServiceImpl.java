@@ -43,6 +43,7 @@ public class RegisterServiceImpl implements RegisterService {
         try {
             int i = userDao.insertAll(user);
             if (i > 0) {
+                //插入成功,发送邮件
                 MailUtils.sendMail("714772696@qq.com", "aflagphjgxcvbehg", user.getEmail(),
                         "恭喜您注册成功,<a href=\"http://"+InetAddress.getLocalHost().getHostAddress()+request.getContextPath()+"/register.php?method=activate&activatecode="+user.getCode()+"\">点击激活</a>");
             }
@@ -55,7 +56,11 @@ public class RegisterServiceImpl implements RegisterService {
             return false;
         }
     }
-
+    /**
+     * @description  用激活码激活邮箱
+     * @author porkchop
+     * @date 2017/9/21 19:05
+     */
     @Override
     public boolean activate(String activatecode) {
         try {
