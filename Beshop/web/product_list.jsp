@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>会员登录</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/index.css" rel="stylesheet" type="text/css"/>
@@ -37,8 +38,8 @@
     </div>
 
     <div class="col-md-2">
-        <a href="product_info.htm"> <img src="products/1/cs10001.jpg"
-                                         width="170" height="170" style="display: inline-block;">
+        <a href="product_info.htm">
+            <img src="products/1/cs10001.jpg" class="img-responsive" width="170" height="170">
         </a>
         <p>
             <a href="product_info.html" style='color: green'>冬瓜</a>

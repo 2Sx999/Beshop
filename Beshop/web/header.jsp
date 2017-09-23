@@ -14,7 +14,7 @@
                     <li><a href="${pageContext.request.contextPath}/cart.jsp">购物车</a></li>
                 </c:if>
                 <c:if test="${sessionScope.user!=null}">
-                    <li><a href="${pageContext.request.contextPath}/index.jsp">${sessionScope.user.username}</a></li>
+                    <li><a href="${pageContext.request.contextPath}/index.php">${sessionScope.user.username}</a></li>
                     <li><a href="${pageContext.request.contextPath}/cart.jsp">购物车</a></li>
                     <li><a href="${pageContext.request.contextPath}/loginandlogout.php?method=logout">退出</a></li>
 
@@ -33,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">首页</a>
+            <a class="navbar-brand" href="${pageContext.request.contextPath}/index.php">首页</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

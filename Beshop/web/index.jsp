@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -71,89 +72,39 @@
                 <div class="col-md-6">
                     <img src="img/middle01.jpg" class="img-responsive item_middle_img">
                 </div>
-                <div class="col-md-2 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/small03.jpg" class="img-responsive"/>
-                        <div class="caption">
-                            <p class="text-center"><a href="#">电炖锅</a></p>
-                            <p class="text-center item_price">¥399</p>
+
+                <c:forEach items="${hotList}" var="hotp" varStatus="varS" begin="0" end="2">
+                    <div class="col-md-2 col-xs-6 <c:if test='${varS.index==2}'>hidden-xs hidden-sm</c:if>">
+                        <div class="thumbnail">
+                            <a href="${pageContext.request.contextPath}/productInfo.php?method=showProductInfo&pid=${hotp.pid}">
+                                <img src="${pageContext.request.contextPath}/${hotp.pimage}" class="img-responsive"/>
+                            </a>
+                            <div class="caption">
+                                <p class="text-center">
+                                    <a href="${pageContext.request.contextPath}/productInfo.php?method=showProductInfo&pid=${hotp.pid}">${hotp.pname}</a>
+                                </p>
+                                <p class="text-center item_price">${hotp.shop_price}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-2 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/small03.jpg" class="img-responsive"/>
-                        <div class="caption">
-                            <p class="text-center"><a href="#">电炖锅</a></p>
-                            <p class="text-center item_price">¥399</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 col-xs-6 hidden-xs hidden-sm">
-                    <div class="thumbnail">
-                        <img src="img/small03.jpg" class="img-responsive"/>
-                        <div class="caption">
-                            <p class="text-center"><a href="#">电炖锅</a></p>
-                            <p class="text-center item_price">¥399</p>
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
             <div class="row">
-                <div class="col-md-2 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/small03.jpg" class="img-responsive"/>
-                        <div class="caption">
-                            <p class="text-center"><a href="#">电炖锅</a></p>
-                            <p class="text-center item_price">¥399</p>
+                <c:forEach items="${hotList}" var="hotp" varStatus="varS" begin="3">
+                    <div class="col-md-2 col-xs-6">
+                        <div class="thumbnail">
+                            <a href="${pageContext.request.contextPath}/productInfo.php?method=showProductInfo&pid=${hotp.pid}">
+                                <img src="${pageContext.request.contextPath}/${hotp.pimage}" class="img-responsive"/>
+                            </a>
+                            <div class="caption">
+                                <p class="text-center">
+                                    <a href="${pageContext.request.contextPath}/productInfo.php?method=showProductInfo&pid=${hotp.pid}">${hotp.pname}</a>
+                                </p>
+                                <p class="text-center item_price">${hotp.shop_price}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-2 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/small03.jpg" class="img-responsive"/>
-                        <div class="caption">
-                            <p class="text-center"><a href="#">电炖锅</a></p>
-                            <p class="text-center item_price">¥399</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/small03.jpg" class="img-responsive"/>
-                        <div class="caption">
-                            <p class="text-center"><a href="#">电炖锅</a></p>
-                            <p class="text-center item_price">¥399</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/small03.jpg" class="img-responsive"/>
-                        <div class="caption">
-                            <p class="text-center"><a href="#">电炖锅</a></p>
-                            <p class="text-center item_price">¥399</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/small03.jpg" class="img-responsive"/>
-                        <div class="caption">
-                            <p class="text-center"><a href="#">电炖锅</a></p>
-                            <p class="text-center item_price">¥399</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/small03.jpg" class="img-responsive"/>
-                        <div class="caption">
-                            <p class="text-center"><a href="#">电炖锅</a></p>
-                            <p class="text-center item_price">¥399</p>
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
     </div>
@@ -185,89 +136,40 @@
                 <div class="col-md-6">
                     <img src="img/middle01.jpg" class="img-responsive item_middle_img">
                 </div>
-                <div class="col-md-2 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/small03.jpg" class="img-responsive"/>
-                        <div class="caption">
-                            <p class="text-center"><a href="#">电炖锅</a></p>
-                            <p class="text-center item_price">¥399</p>
+
+
+                <c:forEach items="${newList}" var="newp" varStatus="varS" begin="0" end="2">
+                    <div class="col-md-2 col-xs-6 <c:if test='${varS.index==2}'>hidden-xs hidden-sm</c:if>">
+                        <div class="thumbnail">
+                            <a href="${pageContext.request.contextPath}/productInfo.php?method=showProductInfo&pid=${newp.pid}">
+                                <img src="${pageContext.request.contextPath}/${newp.pimage}" class="img-responsive"/>
+                            </a>
+                            <div class="caption">
+                                <p class="text-center">
+                                    <a href="${pageContext.request.contextPath}/productInfo.php?method=showProductInfo&pid=${newp.pid}">${newp.pname}</a>
+                                </p>
+                                <p class="text-center item_price">${newp.shop_price}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-2 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/small03.jpg" class="img-responsive"/>
-                        <div class="caption">
-                            <p class="text-center"><a href="#">电炖锅</a></p>
-                            <p class="text-center item_price">¥399</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 col-xs-6 hidden-xs hidden-sm">
-                    <div class="thumbnail">
-                        <img src="img/small03.jpg" class="img-responsive"/>
-                        <div class="caption">
-                            <p class="text-center"><a href="#">电炖锅</a></p>
-                            <p class="text-center item_price">¥399</p>
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
             <div class="row">
-                <div class="col-md-2 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/small03.jpg" class="img-responsive"/>
-                        <div class="caption">
-                            <p class="text-center"><a href="#">电炖锅</a></p>
-                            <p class="text-center item_price">¥399</p>
+                <c:forEach items="${newList}" var="newp" varStatus="varS" begin="3">
+                    <div class="col-md-2 col-xs-6">
+                        <div class="thumbnail">
+                            <a href="${pageContext.request.contextPath}/productInfo.php?method=showProductInfo&pid=${newp.pid}">
+                                <img src="${pageContext.request.contextPath}/${newp.pimage}" class="img-responsive"/>
+                            </a>
+                            <div class="caption">
+                                <p class="text-center">
+                                    <a href="${pageContext.request.contextPath}/productInfo.php?method=showProductInfo&pid=${newp.pid}">${newp.pname}</a>
+                                </p>
+                                <p class="text-center item_price">${newp.shop_price}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-2 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/small03.jpg" class="img-responsive"/>
-                        <div class="caption">
-                            <p class="text-center"><a href="#">电炖锅</a></p>
-                            <p class="text-center item_price">¥399</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/small03.jpg" class="img-responsive"/>
-                        <div class="caption">
-                            <p class="text-center"><a href="#">电炖锅</a></p>
-                            <p class="text-center item_price">¥399</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/small03.jpg" class="img-responsive"/>
-                        <div class="caption">
-                            <p class="text-center"><a href="#">电炖锅</a></p>
-                            <p class="text-center item_price">¥399</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/small03.jpg" class="img-responsive"/>
-                        <div class="caption">
-                            <p class="text-center"><a href="#">电炖锅</a></p>
-                            <p class="text-center item_price">¥399</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2 col-xs-6">
-                    <div class="thumbnail">
-                        <img src="img/small03.jpg" class="img-responsive"/>
-                        <div class="caption">
-                            <p class="text-center"><a href="#">电炖锅</a></p>
-                            <p class="text-center item_price">¥399</p>
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
         </div>
     </div>

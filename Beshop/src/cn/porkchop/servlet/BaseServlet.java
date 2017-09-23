@@ -25,7 +25,7 @@ public class BaseServlet extends HttpServlet {
         String methodName = req.getParameter("method");
         if ("".equals(methodName) || methodName == null) {
             //没有输入method,则返回到首页
-            resp.sendRedirect(req.getContextPath() + "/index.jsp");
+            resp.sendRedirect(req.getContextPath() + "/index.php");
             return;
         }
         //获得当前对象的class类
@@ -48,7 +48,7 @@ public class BaseServlet extends HttpServlet {
             }
         } catch (NoSuchMethodException e) {
             //没有这个方法,返回首页
-            resp.sendRedirect(req.getContextPath() + "/index.jsp");
+            resp.sendRedirect(req.getContextPath() + "/index.php");
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {

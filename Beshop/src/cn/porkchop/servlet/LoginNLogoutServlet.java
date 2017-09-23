@@ -62,7 +62,6 @@ public class LoginNLogoutServlet extends BaseServlet {
                 cookie.setMaxAge(7 * 24 * 60 * 60);
                 response.addCookie(cookie);
             }
-
             return "redirect:/index";
         } catch (WrongCaptchaException e) {
             request.setAttribute("username", user.getUsername());
