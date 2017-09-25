@@ -31,13 +31,13 @@
             <div class="item active">
                 <img src="img/f001a62f-a49d-4a4d-b56f-2b6908a0002c_g.jpg" alt="..." class="img-responsive">
                 <div class="carousel-caption">
-                    first
+
                 </div>
             </div>
             <div class="item">
                 <img src="img/f001a62f-a49d-4a4d-b56f-2b6908a0002c_g.jpg" alt="..." class="img-responsive">
                 <div class="carousel-caption">
-                    second
+
                 </div>
             </div>
         </div>
@@ -77,7 +77,7 @@
                     <div class="col-md-2 col-xs-6 <c:if test='${varS.index==2}'>hidden-xs hidden-sm</c:if>">
                         <div class="thumbnail">
                             <a href="${pageContext.request.contextPath}/productInfo.php?method=showProductInfo&pid=${hotp.pid}">
-                                <img src="${pageContext.request.contextPath}/${hotp.pimage}" class="img-responsive"/>
+                                <img src="${pageContext.request.contextPath}/${hotp.pimage}" class="img-responsive" style="width: 100%"/>
                             </a>
                             <div class="caption">
                                 <p class="text-center">
@@ -94,7 +94,7 @@
                     <div class="col-md-2 col-xs-6">
                         <div class="thumbnail">
                             <a href="${pageContext.request.contextPath}/productInfo.php?method=showProductInfo&pid=${hotp.pid}">
-                                <img src="${pageContext.request.contextPath}/${hotp.pimage}" class="img-responsive"/>
+                                <img src="${pageContext.request.contextPath}/${hotp.pimage}" class="img-responsive" style="width: 100%"/>
                             </a>
                             <div class="caption">
                                 <p class="text-center">
@@ -142,7 +142,7 @@
                     <div class="col-md-2 col-xs-6 <c:if test='${varS.index==2}'>hidden-xs hidden-sm</c:if>">
                         <div class="thumbnail">
                             <a href="${pageContext.request.contextPath}/productInfo.php?method=showProductInfo&pid=${newp.pid}">
-                                <img src="${pageContext.request.contextPath}/${newp.pimage}" class="img-responsive"/>
+                                <img src="${pageContext.request.contextPath}/${newp.pimage}" class="img-responsive" style="width: 100%"/>
                             </a>
                             <div class="caption">
                                 <p class="text-center">
@@ -159,7 +159,7 @@
                     <div class="col-md-2 col-xs-6">
                         <div class="thumbnail">
                             <a href="${pageContext.request.contextPath}/productInfo.php?method=showProductInfo&pid=${newp.pid}">
-                                <img src="${pageContext.request.contextPath}/${newp.pimage}" class="img-responsive"/>
+                                <img src="${pageContext.request.contextPath}/${newp.pimage}" class="img-responsive" style="width: 100%"/>
                             </a>
                             <div class="caption">
                                 <p class="text-center">

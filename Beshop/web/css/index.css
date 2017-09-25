@@ -60,7 +60,15 @@ a:hover {
     border:0px;
     margin-bottom: 0px;
 }
+.thumbnail p:nth-child(2) {
+    color: red;
+}
 
+.thumbnail p:nth-child(1) {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 .item_price{
     color: red;
 }

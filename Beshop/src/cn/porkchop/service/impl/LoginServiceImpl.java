@@ -20,7 +20,7 @@ public class LoginServiceImpl implements LoginService {
     public User login(User user) throws EmailInactivatedException, WrongUorPException {
         try {
             User u = userDao.login(user);
-            if(u.getUsername()==null){
+            if(u==null){
                 throw new WrongUorPException("账号或密码错误");
             }
             if(!checkEmailAcitate(user)){

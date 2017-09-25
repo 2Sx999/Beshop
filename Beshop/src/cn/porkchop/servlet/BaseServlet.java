@@ -44,7 +44,7 @@ public class BaseServlet extends HttpServlet {
                 req.getRequestDispatcher(s[1] + ".jsp").forward(req, resp);
             } else if ("redirect".equals(s[0])) {
                 //重定向
-                resp.sendRedirect(req.getContextPath() + s[1] + ".jsp");
+                resp.sendRedirect(req.getContextPath() + s[1] + ".php");
             }
         } catch (NoSuchMethodException e) {
             //没有这个方法,返回首页

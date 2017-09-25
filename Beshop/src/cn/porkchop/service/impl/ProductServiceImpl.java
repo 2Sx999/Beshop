@@ -1,7 +1,11 @@
 package cn.porkchop.service.impl;
 
+import cn.porkchop.dao.CategoryDao;
 import cn.porkchop.dao.ProductDao;
+import cn.porkchop.dao.impl.CategoryDaoImpl;
 import cn.porkchop.dao.impl.ProductDaoImpl;
+import cn.porkchop.domain.Category;
+import cn.porkchop.domain.PageBean;
 import cn.porkchop.domain.Product;
 import cn.porkchop.service.ProductService;
 
@@ -10,22 +14,25 @@ import java.util.List;
 
 public class ProductServiceImpl implements ProductService {
     ProductDao productDao = new ProductDaoImpl();
+    CategoryDao categoryDao = new CategoryDaoImpl();
+
     /**
-     * @description   返回首页的最新内容的产品list
+     * @description 返回首页的最新内容的产品list
      * @author porkchop
      * @date 2017/9/23 19:41
      */
     @Override
     public List<Product> findNewProductsForIndex() {
         try {
-            return  productDao.findNewProducts(9);
+            return productDao.findNewProducts(9);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
+
     /**
-     * @description   返回首页的热门产品的list
+     * @description 返回首页的热门产品的list
      * @author porkchop
      * @date 2017/9/23 19:41
      */
@@ -38,8 +45,9 @@ public class ProductServiceImpl implements ProductService {
         }
         return null;
     }
+
     /**
-     * @description  根据id获取产品
+     * @description 根据id获取产品
      * @author porkchop
      * @date 2017/9/23 20:36
      */
@@ -47,6 +55,25 @@ public class ProductServiceImpl implements ProductService {
     public Product findProductById(String pid) {
         try {
             return productDao.findProductById(pid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * @description  根据分类,分页显示商品
+     * @author porkchop
+     * @date 2017/9/24 14:34
+     * @return 返回的Category
+     */
+    @Override
+    public Category findProductByCategory(PageBean<Product> pageBean, String cid) {
+        try {
+            pageBean.setTotalCount((int) productDao.findCountByCid(cid));
+            pageBean.setTotalPage((int) Math.ceil((double) pageBean.getTotalCount() / pageBean.getCurrentCount()));
+            pageBean.setList(productDao.findProductsPaginationByCid(pageBean, cid));
+            return categoryDao.findAllCategoryById(cid);
         } catch (SQLException e) {
             e.printStackTrace();
         }

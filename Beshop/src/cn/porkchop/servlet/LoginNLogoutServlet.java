@@ -35,12 +35,8 @@ public class LoginNLogoutServlet extends BaseServlet {
      * @date 2017/9/21 19:14
      */
     public String login(HttpServletRequest request, HttpServletResponse response) throws InvocationTargetException, IllegalAccessException {
-        String autoLogin = null;
-        try {
-            autoLogin = request.getParameter("autoLogin");
-        } catch (Exception e) {
+        String autoLogin = request.getParameter("autoLogin");
 
-        }
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         //封装到user中
@@ -214,5 +210,4 @@ public class LoginNLogoutServlet extends BaseServlet {
         int b = fc + random.nextInt(bc - fc);
         return new Color(r, g, b);
     }
-
 }

@@ -31,6 +31,10 @@
         <servlet-name>ProductInfoServlet</servlet-name>
         <servlet-class>cn.porkchop.servlet.ProductInfoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CategoryServlet</servlet-name>
+        <servlet-class>cn.porkchop.servlet.CategoryServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register.php</url-pattern>
@@ -51,6 +55,12 @@
         <servlet-name>ProductInfoServlet</servlet-name>
         <url-pattern>/productInfo.php</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryServlet</servlet-name>
+        <url-pattern>/category.php</url-pattern>
+    </servlet-mapping>
+
+
     <welcome-file-list>
         <welcome-file>index.php</welcome-file>
     </welcome-file-list>

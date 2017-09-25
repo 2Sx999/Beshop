@@ -14,7 +14,11 @@ class UTF8Request extends HttpServletRequestWrapper {
     @Override
     public String getParameter(String name) {
         Map<String, String[]> map = getParameterMap();
-        return map.get(name)[0];
+        String[] strings = map.get(name);
+        if(strings!=null){  //防止没有传值
+            return strings[0];
+        }
+        return null;
     }
     @Override
     public String[] getParameterValues(String name) {

@@ -17,7 +17,6 @@
     <style>
         .path {
             font-size: 16px;
-            margin-bottom: 13px;
         }
     </style>
 </head>
@@ -28,11 +27,16 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1 path">
-            <a href="./index.htm">首页</a>&nbsp;&nbsp;&gt;
-            <a href="./蔬菜分类.htm">蔬菜</a>&nbsp;&nbsp;&gt;
-            <a>无公害蔬菜</a>
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 path">
+                <ol class="breadcrumb">
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">蔬菜</a></li>
+                </ol>
+            </div>
         </div>
+
 
         <div class="col-md-4 col-md-offset-1">
             <img title="" class="img-responsive"
@@ -73,9 +77,12 @@
     <div class="clear"></div>
     <%--商品介绍--%>
     <div class="row">
-        <div style="background-color: #d3d3d3;padding: 10px 10px;margin-top: 10px;margin-bottom: 10px"
-             class="col-md-10 col-md-offset-1">
-            <strong>商品介绍</strong>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1" style="margin-top: 10px">
+                <ol class="breadcrumb">
+                    <li><a href="#">商品介绍</a></li>
+                </ol>
+            </div>
         </div>
 
         <div class="col-md-10 col-md-offset-1">

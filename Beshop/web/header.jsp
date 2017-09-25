@@ -38,25 +38,27 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="#">手机数码</a></li>
-                <li><a href="#">家用电器</a></li>
-                <li><a href="#">鞋靴箱包</a></li>
-                <li><a href="#">电脑办公</a></li>
-                <li><a href="#">孕婴保健</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">所有分类<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">手机数码</a></li>
-                        <li><a href="#">家用电器</a></li>
-                        <li><a href="#">鞋靴箱包</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">电脑办公</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">孕婴保健</a></li>
-                    </ul>
-                </li>
+
             </ul>
+            <script>
+                $.ajax({
+                    asyn:false,
+                    url: "${pageContext.request.contextPath}/category.php",
+                    data: {method: "showHeaderCategories"},
+                    type: "POST",
+                    success: function (data) {
+                        var string = "";
+                        for (var i = 0; i < data.length; i++) {
+                            string += "<li><a href='${pageContext.request.contextPath}/productList.php?method=showProductsByCategory&cid=" + data[i].cid + "'>" + data[i].cname + "</a></li>";
+                        }
+                        $(".navbar ul").html(string);
+                    },
+                    "error": function () {
+                        alert("服务器繁忙，请稍后重试");
+                    },
+                    "dataType": "json"
+                });
+            </script>
             <form class="navbar-form navbar-right">
                 <div class="form-group">
                     <div class="input-group">
