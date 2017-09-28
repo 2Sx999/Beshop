@@ -34,7 +34,6 @@ public class Md5Utils {
                 res = res + s;
             }
         } catch (NoSuchAlgorithmException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return res;
