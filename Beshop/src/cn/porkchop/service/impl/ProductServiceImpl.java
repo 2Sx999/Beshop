@@ -7,6 +7,7 @@ import cn.porkchop.dao.impl.ProductDaoImpl;
 import cn.porkchop.domain.Category;
 import cn.porkchop.domain.PageBean;
 import cn.porkchop.domain.Product;
+import cn.porkchop.exception.NoSuchProductException;
 import cn.porkchop.service.ProductService;
 
 import java.sql.SQLException;
@@ -52,9 +53,13 @@ public class ProductServiceImpl implements ProductService {
      * @date 2017/9/23 20:36
      */
     @Override
-    public Product findProductById(String pid) {
+    public Product findProductById(String pid) throws NoSuchProductException {
         try {
-            return productDao.findProductById(pid);
+            Product product = productDao.findProductById(pid);
+            if(product==null){
+                throw new NoSuchProductException("没有这个商品");
+            }
+            return product;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -79,4 +84,5 @@ public class ProductServiceImpl implements ProductService {
         }
         return null;
     }
+
 }

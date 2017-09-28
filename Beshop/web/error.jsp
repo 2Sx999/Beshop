@@ -24,12 +24,7 @@
 <div class="container">
 
     <div class="jumbotron">
-        <h2>恭喜您成功激活邮箱!</h2>
-        <hr/>
-        <div>
-            <span><a href="${pageContext.request.contextPath}/index.php">返回首页</a></span>&nbsp;&nbsp;&nbsp;
-            <span><a href="${pageContext.request.contextPath}/login.jsp">登陆</a></span>&nbsp;&nbsp;&nbsp;
-        </div>
+        <h2>找不到您所访问的页面!</h2>
 
     </div>
 </div>

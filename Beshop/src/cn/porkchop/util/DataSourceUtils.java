@@ -68,6 +68,14 @@ public class DataSourceUtils {
         Connection connection = getConnection();
         if(connection!=null){
             connection.commit();
+        }
+
+    }
+
+    public static  void closeConnection() throws SQLException {
+        Connection connection = getConnection();
+        if(connection!=null){
+
             connection.close();
             threadLocal.remove();
         }

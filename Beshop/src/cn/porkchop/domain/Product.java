@@ -7,7 +7,7 @@ public class Product {
     private String pid;
     private String pname;
     private double market_price;
-    private String shop_price;
+    private double shop_price;
     private String pimage;
     private Date pdate;
     private int is_hot;
@@ -39,11 +39,11 @@ public class Product {
         this.market_price = market_price;
     }
 
-    public String getShop_price() {
+    public double getShop_price() {
         return shop_price;
     }
 
-    public void setShop_price(String shop_price) {
+    public void setShop_price(double shop_price) {
         this.shop_price = shop_price;
     }
 
@@ -103,11 +103,11 @@ public class Product {
         Product product = (Product) o;
 
         if (Double.compare(product.market_price, market_price) != 0) return false;
+        if (Double.compare(product.shop_price, shop_price) != 0) return false;
         if (is_hot != product.is_hot) return false;
         if (pflag != product.pflag) return false;
         if (pid != null ? !pid.equals(product.pid) : product.pid != null) return false;
         if (pname != null ? !pname.equals(product.pname) : product.pname != null) return false;
-        if (shop_price != null ? !shop_price.equals(product.shop_price) : product.shop_price != null) return false;
         if (pimage != null ? !pimage.equals(product.pimage) : product.pimage != null) return false;
         if (pdate != null ? !pdate.equals(product.pdate) : product.pdate != null) return false;
         if (pdesc != null ? !pdesc.equals(product.pdesc) : product.pdesc != null) return false;
@@ -122,7 +122,8 @@ public class Product {
         result = 31 * result + (pname != null ? pname.hashCode() : 0);
         temp = Double.doubleToLongBits(market_price);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (shop_price != null ? shop_price.hashCode() : 0);
+        temp = Double.doubleToLongBits(shop_price);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + (pimage != null ? pimage.hashCode() : 0);
         result = 31 * result + (pdate != null ? pdate.hashCode() : 0);
         result = 31 * result + is_hot;

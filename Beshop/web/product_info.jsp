@@ -11,6 +11,7 @@
     <link href="css/register.css" rel="stylesheet" type="text/css"/>
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
     <!-- 引入自定义css文件 style.css -->
     <link rel="stylesheet" href="css/style.css" type="text/css"/>
 
@@ -19,6 +20,29 @@
             font-size: 16px;
         }
     </style>
+    <script>
+        $(function () {
+            $("#form").validate({
+                rules: {
+                    quantity: {
+                        required: true,
+                        range: [1, 99]
+                    }
+                },
+                messages: {
+                    quantity: {
+                        required: "数量不能为空",
+                        range: "只能购买1到99的数量"
+                    }
+                },
+                errorPlacement: function (error, element) {
+                    error.appendTo(element.parent());
+                    $(error).css({color: "red"});
+                }
+            });
+        });
+
+    </script>
 </head>
 
 <body>
@@ -43,7 +67,7 @@
                  src="${pageContext.request.contextPath}/${product.pimage}">
         </div>
 
-        <div class="col-md-6 col-md-offset-1">
+        <div class="col-md-4 col-md-offset-1">
 
             <div>
                 <strong>${product.pname}</strong>
@@ -61,17 +85,16 @@
                 促销: <a target="_blank" title="限时抢购 (2014-07-30 ~ 2015-01-01)"
                        style="background-color: #f07373;">限时抢购</a>
             </div>
-
-            <div style="border-bottom: 1px solid #faeac7; margin-top: 15px; ">
-                购买数量: <input id="quantity" name="quantity" value="1" maxlength="4" size="10" type="text">
-            </div>
-
-            <div style="border-bottom: 1px solid #faeac7; margin-top: 15px; ">
-                <a href="cart.jsp">
-                    <input style="background: url('./images/product.gif') no-repeat scroll 0 -600px rgba(0, 0, 0, 0); height: 36px; width: 127px;"
-                           value="加入购物车" type="button">
-                </a>
-            </div>
+            <form action="${pageContext.request.contextPath}/productInfo.php?method=addToCart" method="post"
+                  id="form">
+                <div style="border-bottom: 1px solid #faeac7; margin-top: 15px; ">
+                    购买数量: <input id="quantity" name="quantity" value="1" maxlength="4" size="10" type="text">
+                </div>
+                <input type="hidden" name="pid" value="${product.pid}">
+                <div style="border-bottom: 1px solid #faeac7; margin-top: 15px; ">
+                    <input class="btn btn-danger" type="submit" value="添加到购物车">
+                </div>
+            </form>
         </div>
     </div>
     <div class="clear"></div>

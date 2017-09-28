@@ -34,7 +34,7 @@ public class LoginNLogoutServlet extends BaseServlet {
      * @author porkchop
      * @date 2017/9/21 19:14
      */
-    public String login(HttpServletRequest request, HttpServletResponse response) throws InvocationTargetException, IllegalAccessException {
+    public String login(HttpServletRequest request, HttpServletResponse response) throws InvocationTargetException, IllegalAccessException, IOException {
         String autoLogin = request.getParameter("autoLogin");
 
         String username = request.getParameter("username");
@@ -58,7 +58,8 @@ public class LoginNLogoutServlet extends BaseServlet {
                 cookie.setMaxAge(7 * 24 * 60 * 60);
                 response.addCookie(cookie);
             }
-            return "redirect:/index";
+            response.sendRedirect(request.getContextPath() +"/index.php");
+            return null;
         } catch (WrongCaptchaException e) {
             request.setAttribute("username", user.getUsername());
             request.setAttribute("wrongCaptchaException", e.getMessage());
@@ -81,9 +82,10 @@ public class LoginNLogoutServlet extends BaseServlet {
      * @author porkchop
      * @date 2017/9/22 21:32
      */
-    public String logout(HttpServletRequest request, HttpServletResponse response) {
+    public String logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
         request.getSession().invalidate();
-        return "redirect:/index";
+        response.sendRedirect(request.getContextPath() +"/index.php");
+        return null;
     }
 
     // 集合中保存所有成语

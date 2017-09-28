@@ -14,7 +14,7 @@
                     <li><a href="${pageContext.request.contextPath}/cart.jsp">购物车</a></li>
                 </c:if>
                 <c:if test="${sessionScope.user!=null}">
-                    <li><a href="${pageContext.request.contextPath}/index.php">${sessionScope.user.username}</a></li>
+                    <li><a href="${pageContext.request.contextPath}/index.php" style="color: red">欢迎,${sessionScope.user.username}</a></li>
                     <li><a href="${pageContext.request.contextPath}/cart.jsp">购物车</a></li>
                     <li><a href="${pageContext.request.contextPath}/loginandlogout.php?method=logout">退出</a></li>
 
