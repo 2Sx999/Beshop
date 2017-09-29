@@ -1,8 +1,10 @@
-package cn.porkchop.servlet;
+package cn.porkchop.servlet.loginrequired;
 
 import cn.porkchop.domain.*;
 import cn.porkchop.service.OrderService;
 import cn.porkchop.service.impl.OrderServiceImpl;
+import cn.porkchop.servlet.BaseServlet;
+import cn.porkchop.util.PaymentUtil;
 import cn.porkchop.util.UUIDUtils;
 import org.apache.commons.beanutils.BeanUtils;
 
@@ -19,12 +21,27 @@ import java.util.ResourceBundle;
 
 public class OrderServlet extends BaseServlet {
     OrderService orderService = new OrderServiceImpl();
+    /**
+     * @description  分页获取所有订单
+     * @author porkchop
+     * @date 2017/9/29 19:29
+     */
+    public String getMyOrders(HttpServletRequest request, HttpServletResponse response) throws InvocationTargetException, IllegalAccessException {
+        String currentPage = request.getParameter("currentPage");
+        User user = (User) request.getSession().getAttribute("user");
+        PageBean<Order> pageBean = new PageBean<>();
+        pageBean.setCurrentPage(currentPage==null?1:Integer.parseInt(currentPage));
+        orderService.getMyOrdersByPagination(user,pageBean);
+        request.setAttribute("pageBean",pageBean);
+        return "forward:/order_list";
+    }
 
     /**
      * @description 提交订单
      * @author porkchop
      * @date 2017/9/27 12:50
      */
+
     public String submitOrder(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
         Cart cart = (Cart) session.getAttribute("cart");

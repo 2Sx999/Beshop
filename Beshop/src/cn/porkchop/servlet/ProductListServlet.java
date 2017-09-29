@@ -15,7 +15,7 @@ public class ProductListServlet extends BaseServlet {
     ProductService productService = new ProductServiceImpl();
 
     /**
-     * @description 商品类别分页
+     * @description 商品分页通过类别
      * @author porkchop
      * @date 2017/9/24 15:10
      */

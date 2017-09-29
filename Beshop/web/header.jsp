@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-12">
             <!--60*60的商标-->
-            <img src="img/yuan.gif" class="img-responsive mainicon"/>
+            <img src="${pageContext.request.contextPath}/img/yuan.gif" class="img-responsive mainicon"/>
             <ul class="user_info">
                 <c:if test="${sessionScope.user==null}">
                     <li><a href="${pageContext.request.contextPath}/login.jsp">登陆</a></li>
@@ -16,6 +16,7 @@
                 <c:if test="${sessionScope.user!=null}">
                     <li><a href="${pageContext.request.contextPath}/index.php" style="color: red">欢迎,${sessionScope.user.username}</a></li>
                     <li><a href="${pageContext.request.contextPath}/cart.jsp">购物车</a></li>
+                    <li><a href="${pageContext.request.contextPath}/loginrequired/order.php?method=getMyOrders">我的订单</a></li>
                     <li><a href="${pageContext.request.contextPath}/loginandlogout.php?method=logout">退出</a></li>
 
                 </c:if>

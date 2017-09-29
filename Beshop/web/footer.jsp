@@ -4,7 +4,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 hidden-sm hidden-xs">
-			<img src="img/footer.jpg" class="img-responsive"/>
+			<img src="${pageContext.request.contextPath}/img/footer.jpg" class="img-responsive"/>
 		</div>
 	</div>
 </div>

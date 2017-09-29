@@ -7,14 +7,14 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>会员登录</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="css/index.css" rel="stylesheet" type="text/css"/>
-    <link href="css/register.css" rel="stylesheet" type="text/css"/>
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/css/index.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/css/register.css" rel="stylesheet" type="text/css"/>
+    <script src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery.validate.min.js"></script>
     <!-- 引入自定义css文件 style.css -->
-    <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css"/>
     <style>
 
         .carousel-inner .item img {
@@ -88,7 +88,7 @@
     <%--订单信息--%>
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
-            <form class="form-horizontal" action="${pageContext.request.contextPath}/order.php?method=confirmOrder" method="post">
+            <form class="form-horizontal" action="${pageContext.request.contextPath}/loginrequired/order.php?method=confirmOrder" method="post">
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">地址</label>
                     <div class="col-md-10">
@@ -115,7 +115,7 @@
                             <label>
                                 <input type="radio" name="pd_FrpId" value="CMBCHINA-NET-B2C" checked="checked">
                                 招商银行
-                                <img src="./bank_img/cmb.bmp" align="middle"/>
+                                <img src="${pageContext.request.contextPath}/bank_img/cmb.bmp" align="middle"/>
                             </label>
                         </div>
                     </div>
@@ -123,7 +123,7 @@
                         <div class="radio-inline">
                             <label>
                                 <input type="radio" name="pd_FrpId" value="ICBC-NET-B2C"> 工商银行<img
-                                    src="./bank_img/icbc.bmp" align="middle"/>
+                                    src="${pageContext.request.contextPath}/bank_img/icbc.bmp" align="middle"/>
                             </label>
                         </div>
                     </div>
@@ -131,7 +131,7 @@
                         <div class="radio-inline">
                             <label>
                                 <input type="radio" name="pd_FrpId" value="BOC-NET-B2C"> 中国银行<img
-                                    src="./bank_img/bc.bmp" align="middle"/>
+                                    src="${pageContext.request.contextPath}/bank_img/bc.bmp" align="middle"/>
                             </label>
                         </div>
                     </div>
@@ -139,14 +139,14 @@
                         <div class="radio-inline">
                             <label>
                                 <input type="radio" name="pd_FrpId" value="ABC-NET-B2C"> 农业银行
-                                <img src="./bank_img/abc.bmp" align="middle"/>
+                                <img src="${pageContext.request.contextPath}/bank_img/abc.bmp" align="middle"/>
                             </label>
                         </div>
                     </div>
                     <div class="col-md-5 col-md-offset-2">
                         <div class="radio-inline">
                             <label>
-                                <input type="radio" name="pd_FrpId" value="BOCO-NET-B2C">交通银行 <img src="./bank_img/bcc.bmp"
+                                <input type="radio" name="pd_FrpId" value="BOCO-NET-B2C">交通银行 <img src="${pageContext.request.contextPath}/bank_img/bcc.bmp"
                                                                                                    align="middle"/>
                         </div>
                     </div>
@@ -154,7 +154,7 @@
                         <div class="radio-inline">
                             <label>
                                 <input type="radio" name="pd_FrpId" value="PINGANBANK-NET">平安银行
-                                <img src="./bank_img/pingan.bmp" align="middle"/>
+                                <img src="${pageContext.request.contextPath}/bank_img/pingan.bmp" align="middle"/>
                             </label>
                         </div>
                     </div>
@@ -162,7 +162,7 @@
                         <div class="radio-inline">
                             <label>
                                 <input type="radio" name="pd_FrpId" value="CCB-NET-B2C"> 建设银行 <img
-                                    src="./bank_img/ccb.bmp" align="middle"/>
+                                    src="${pageContext.request.contextPath}/bank_img/ccb.bmp" align="middle"/>
                             </label>
                         </div>
                     </div>
@@ -170,7 +170,7 @@
                         <div class="radio-inline">
                             <label>
                                 <input type="radio" name="pd_FrpId" value="CEB-NET-B2C">光大银行 <img
-                                    src="./bank_img/guangda.bmp" align="middle"/>
+                                    src="${pageContext.request.contextPath}/bank_img/guangda.bmp" align="middle"/>
                             </label>
                         </div>
                     </div>

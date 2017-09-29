@@ -8,10 +8,10 @@
     <title>XX商城</title>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="css/index.css" rel="stylesheet" type="text/css"/>
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="${pageContext.request.contextPath}/css/index.css" rel="stylesheet" type="text/css"/>
+    <script src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 </head>
 <body>
 <jsp:include page="/header.jsp"/>
@@ -29,13 +29,13 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img src="img/f001a62f-a49d-4a4d-b56f-2b6908a0002c_g.jpg" alt="..." class="img-responsive">
+                <img src="${pageContext.request.contextPath}/img/f001a62f-a49d-4a4d-b56f-2b6908a0002c_g.jpg" alt="..." class="img-responsive">
                 <div class="carousel-caption">
 
                 </div>
             </div>
             <div class="item">
-                <img src="img/f001a62f-a49d-4a4d-b56f-2b6908a0002c_g.jpg" alt="..." class="img-responsive">
+                <img src="${pageContext.request.contextPath}/img/f001a62f-a49d-4a4d-b56f-2b6908a0002c_g.jpg" alt="..." class="img-responsive">
                 <div class="carousel-caption">
 
                 </div>
@@ -60,17 +60,17 @@
             <h2>热门商品</h2>
         </div>
         <div class="col-md-2 col-xs-7">
-            <img src="img/title2.jpg" class="category_title_img"/>
+            <img src="${pageContext.request.contextPath}/img/title2.jpg" class="category_title_img"/>
         </div>
     </div>
     <div class="row">
         <div class="col-md-2  hidden-sm hidden-xs">
-            <img class="img-responsive" src="img/big01.gif"/>
+            <img class="img-responsive" src="${pageContext.request.contextPath}/img/big01.gif"/>
         </div>
         <div class="col-md-10">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="img/middle01.jpg" class="img-responsive item_middle_img">
+                    <img src="${pageContext.request.contextPath}/img/middle01.jpg" class="img-responsive item_middle_img">
                 </div>
 
                 <c:forEach items="${hotList}" var="hotp" varStatus="varS" begin="0" end="2">
@@ -113,7 +113,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 hidden-sm hidden-xs">
-            <img src="img/ad.jpg" class="img-responsive"/>
+            <img src="${pageContext.request.contextPath}/img/ad.jpg" class="img-responsive"/>
         </div>
     </div>
 </div>
@@ -124,17 +124,17 @@
             <h2>最新商品</h2>
         </div>
         <div class="col-md-2 col-xs-7">
-            <img src="img/title2.jpg" class="category_title_img"/>
+            <img src="${pageContext.request.contextPath}/img/title2.jpg" class="category_title_img"/>
         </div>
     </div>
     <div class="row">
         <div class="col-md-2  hidden-sm hidden-xs">
-            <img class="img-responsive" src="img/big01.gif"/>
+            <img class="img-responsive" src="${pageContext.request.contextPath}/img/big01.gif"/>
         </div>
         <div class="col-md-10">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="img/middle01.jpg" class="img-responsive item_middle_img">
+                    <img src="${pageContext.request.contextPath}/img/middle01.jpg" class="img-responsive item_middle_img">
                 </div>
 
 

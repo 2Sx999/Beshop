@@ -1,4 +1,4 @@
-package cn.porkchop.servlet;
+package cn.porkchop.util;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
