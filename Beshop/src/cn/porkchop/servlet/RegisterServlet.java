@@ -9,11 +9,9 @@ import cn.porkchop.util.UUIDUtils;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.Converter;
-import org.apache.commons.dbutils.DbUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sound.midi.Soundbank;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.text.ParseException;
@@ -27,7 +25,7 @@ import java.util.Map;
  * @date 2017/9/20 21:45
  */
 public class RegisterServlet extends BaseServlet {
-    RegisterService registerService = new RegisterServiceImpl();
+    private RegisterService registerService = new RegisterServiceImpl();
 
     /**
      * @description

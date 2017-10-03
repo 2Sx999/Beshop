@@ -56,7 +56,7 @@
                     <td>
                         <a href="${pageContext.request.contextPath}/productInfo.php?method=showProductInfo&pid=${entry.value.product.pid}"
                            target="_blank">
-                            <img src="${entry.value.product.pimage}" width="60" height="60" class="img-responsive">
+                            <img src="${pageContext.request.contextPath}/${entry.value.product.pimage}" width="60" height="60" class="img-responsive">
                         </a>
                     </td>
                     <td style="vertical-align: middle;">

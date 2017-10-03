@@ -9,19 +9,19 @@ import cn.porkchop.domain.PageBean;
 import cn.porkchop.domain.Product;
 import cn.porkchop.exception.NoSuchProductException;
 import cn.porkchop.service.ProductService;
+import org.apache.commons.beanutils.BeanUtils;
 
+import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ProductServiceImpl implements ProductService {
-    ProductDao productDao = new ProductDaoImpl();
-    CategoryDao categoryDao = new CategoryDaoImpl();
+    private ProductDao productDao = new ProductDaoImpl();
+    private CategoryDao categoryDao = new CategoryDaoImpl();
 
-    /**
-     * @description 返回首页的最新内容的产品list
-     * @author porkchop
-     * @date 2017/9/23 19:41
-     */
+
     @Override
     public List<Product> findNewProductsForIndex() {
         try {
@@ -32,11 +32,7 @@ public class ProductServiceImpl implements ProductService {
         return null;
     }
 
-    /**
-     * @description 返回首页的热门产品的list
-     * @author porkchop
-     * @date 2017/9/23 19:41
-     */
+
     @Override
     public List<Product> findHotProductsForIndex() {
         try {
@@ -47,18 +43,19 @@ public class ProductServiceImpl implements ProductService {
         return null;
     }
 
-    /**
-     * @description 根据id获取产品
-     * @author porkchop
-     * @date 2017/9/23 20:36
-     */
+
     @Override
-    public Product findProductById(String pid) throws NoSuchProductException {
+    public Product findProductById(String pid) throws NoSuchProductException, InvocationTargetException, IllegalAccessException {
         try {
-            Product product = productDao.findProductById(pid);
-            if(product==null){
+            Map<String, Object> map = productDao.findProductById(pid);
+            if(map==null){
                 throw new NoSuchProductException("没有这个商品");
             }
+            Product product = new Product();
+            Category category = new Category();
+            product.setCategory(category);
+            BeanUtils.populate(product,map);
+            BeanUtils.populate(category,map);
             return product;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -66,23 +63,75 @@ public class ProductServiceImpl implements ProductService {
         return null;
     }
 
-    /**
-     * @description  根据分类,分页显示商品
-     * @author porkchop
-     * @date 2017/9/24 14:34
-     * @return 返回的Category
-     */
+
     @Override
     public Category findProductByCategory(PageBean<Product> pageBean, String cid) {
         try {
             pageBean.setTotalCount((int) productDao.findCountByCid(cid));
             pageBean.setTotalPage((int) Math.ceil((double) pageBean.getTotalCount() / pageBean.getCurrentCount()));
             pageBean.setList(productDao.findProductsPaginationByCid(pageBean, cid));
-            return categoryDao.findAllCategoryById(cid);
+            return categoryDao.findCategoryById(cid);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
+
+    @Override
+    public PageBean<Product> findProductsByPagination(PageBean<Product> pageBean) throws InvocationTargetException, IllegalAccessException {
+        try {
+            pageBean.setTotalCount((int) productDao.findAllProductCount());
+            pageBean.setTotalPage((int) Math.ceil((double) pageBean.getTotalCount() / pageBean.getCurrentCount()));
+            List<Map<String, Object>> mapList = productDao.findProductsByPagination(pageBean);
+            List<Product> list = new ArrayList<>();
+            pageBean.setList(list);
+            for(Map<String,Object> map:mapList ){
+                Product product = new Product();
+                Category category = new Category();
+                product.setCategory(category);
+                BeanUtils.populate(category,map);
+                BeanUtils.populate(product,map);
+                list.add(product);
+            }
+            return pageBean;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public boolean addProduct(Product product) {
+        try {
+            int i = productDao.addProduct(product);
+            return i>0?true:false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean updateProductById(Product product) {
+        try {
+            int i = productDao.updateProductById(product);
+            return i>0?true:false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean delProductById(String pid) {
+        try {
+            int i = productDao.delProductById(pid);
+            return i>0?true:false;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 
 }

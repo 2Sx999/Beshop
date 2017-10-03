@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class IndexServlet extends HttpServlet {
-    ProductService productService = new ProductServiceImpl();
+    private ProductService productService = new ProductServiceImpl();
     /**
      * @description  跳转到主页面,把热门商品和最新商品显示
      * @author porkchop

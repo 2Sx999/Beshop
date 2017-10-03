@@ -17,7 +17,6 @@ public class MailUtils {
      * @param toEmail   接受者的邮箱
      * @param emailHTMLMsg  发送的html代码
      * @param password 发送者的邮箱密码或者授权码
-     * @description
      * @author porkchop
      * @date 2017/9/21 14:55
      */

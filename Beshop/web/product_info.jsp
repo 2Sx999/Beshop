@@ -56,7 +56,7 @@
             <div class="col-md-10 col-md-offset-1 path">
                 <ol class="breadcrumb">
                     <li><a href="#">首页</a></li>
-                    <li><a href="#">蔬菜</a></li>
+                    <li><a href="#">${product.category.cname}</a></li>
                 </ol>
             </div>
         </div>
@@ -72,7 +72,7 @@
             <div>
                 <strong>${product.pname}</strong>
             </div>
-            <div style="border-bottom: 1px dotted #dddddd; width: 350px; margin: 10px 0 10px 0;">
+            <div style="border-bottom: 1px dotted #dddddd; margin: 10px 0 10px 0;">
                 <div>编号：${product.pid}</div>
             </div>
 
@@ -82,8 +82,7 @@
             </div>
 
             <div style="margin: 10px 0 10px 0;">
-                促销: <a target="_blank" title="限时抢购 (2014-07-30 ~ 2015-01-01)"
-                       style="background-color: #f07373;">限时抢购</a>
+                促销: <a target="_blank" title="限时抢购 (2014-07-30 ~ 2015-01-01)"   >限时抢购</a>
             </div>
             <form action="${pageContext.request.contextPath}/productInfo.php?method=addToCart" method="post"
                   id="form">
@@ -118,8 +117,8 @@
                     <th colspan="2">基本参数</th>
                 </tr>
                 <tr>
-                    <th width="10%">名称</th>
-                    <td width="30%">${product.pname}</td>
+                    <th >名称</th>
+                    <td >${product.pdesc}</td>
                 </tr>
                 </tbody>
             </table>

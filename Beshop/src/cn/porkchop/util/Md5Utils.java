@@ -4,7 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * @description  md5加密工具类
+ * md5加密工具类
  * @author porkchop
  * @date 2017/9/20 23:11
  */

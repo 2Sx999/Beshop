@@ -12,15 +12,9 @@ import java.net.UnknownHostException;
 import java.sql.SQLException;
 
 public class RegisterServiceImpl implements RegisterService {
-    UserDao userDao = new UserDaoImpl();
+    private UserDao userDao = new UserDaoImpl();
 
-    /**
-     * @param username
-     * @return 返回true为有一样的username, false为没有一样的username
-     * @description 查询用户名是否重复
-     * @author porkchop
-     * @date 2017/9/21 11:08
-     */
+
     @Override
     public boolean checkUserName(String username) {
         try {
@@ -32,12 +26,7 @@ public class RegisterServiceImpl implements RegisterService {
         return true;
     }
 
-    /**
-     * @return ture为注册成功
-     * @description 注册
-     * @author porkchop
-     * @date 2017/9/21 13:06
-     */
+
     @Override
     public boolean register(User user, HttpServletRequest request) {
         try {
@@ -56,11 +45,7 @@ public class RegisterServiceImpl implements RegisterService {
             return false;
         }
     }
-    /**
-     * @description  用激活码激活邮箱
-     * @author porkchop
-     * @date 2017/9/21 19:05
-     */
+
     @Override
     public boolean activate(String activatecode) {
         try {

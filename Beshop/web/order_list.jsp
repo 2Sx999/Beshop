@@ -82,7 +82,7 @@
                     <c:if test="${pageBean.currentPage-3+index>0&&pageBean.currentPage-3+index<=pageBean.totalPage}">
                         <li
                                 <c:if test="${pageBean.currentPage-3+index==pageBean.currentPage}">class="active"</c:if> >
-                            <a href="${pageContext.request.contextPath}/order.php?method=getMyOrders&currentPage=${pageBean.currentPage-3+index}">${pageBean.currentPage-3+index}</a>
+                            <a href="${pageContext.request.contextPath}/loginrequired/order.php?method=getMyOrders&currentPage=${pageBean.currentPage-3+index}">${pageBean.currentPage-3+index}</a>
                         </li>
                     </c:if>
                 </c:forEach>

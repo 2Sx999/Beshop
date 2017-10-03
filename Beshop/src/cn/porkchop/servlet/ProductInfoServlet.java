@@ -4,25 +4,29 @@ import cn.porkchop.domain.Cart;
 import cn.porkchop.domain.CartItem;
 import cn.porkchop.domain.Product;
 import cn.porkchop.exception.NoSuchProductException;
+import cn.porkchop.service.CategoryService;
 import cn.porkchop.service.ProductService;
+import cn.porkchop.service.impl.CategoryServiceImpl;
 import cn.porkchop.service.impl.ProductServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.LinkedList;
 import java.util.List;
 
 public class ProductInfoServlet extends BaseServlet {
-    ProductService productService = new ProductServiceImpl();
+    private ProductService productService = new ProductServiceImpl();
+    private CategoryService categoryService = new CategoryServiceImpl();
 
     /**
      * @description 显示产品信息, 通过id
      * @author porkchop
      * @date 2017/9/23 20:35
      */
-    public String showProductInfo(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public String showProductInfo(HttpServletRequest request, HttpServletResponse response) throws IOException, InvocationTargetException, IllegalAccessException {
         try {
             String pid = request.getParameter("pid");
             Product product = productService.findProductById(pid);
@@ -67,7 +71,7 @@ public class ProductInfoServlet extends BaseServlet {
      * @author porkchop
      * @date 2017/9/26 9:57
      */
-    public String addToCart(HttpServletRequest request, HttpServletResponse response)  {
+    public String addToCart(HttpServletRequest request, HttpServletResponse response) throws InvocationTargetException, IllegalAccessException {
         try {
             String quantity = request.getParameter("quantity");
             String pid = request.getParameter("pid");

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductListServlet extends BaseServlet {
-    ProductService productService = new ProductServiceImpl();
+    private ProductService productService = new ProductServiceImpl();
 
     /**
      * @description 商品分页通过类别

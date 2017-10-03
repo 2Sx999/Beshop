@@ -25,7 +25,7 @@ public class DataSourceUtils {
     }
 
     /**
-     * @description  获得连接,并且判断是否绑定在threadlocal中
+     * @description 获得连接,并且判断是否绑定在threadlocal中
      * @author porkchop
      * @date 2017/9/21 10:21
      */

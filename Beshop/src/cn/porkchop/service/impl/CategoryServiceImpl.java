@@ -12,20 +12,15 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class CategoryServiceImpl implements CategoryService {
-    CategoryDao categoryDao = new CategoryDaoImpl();
-    JedisDao jedisDao = new JedisDaoImpl();
+    private CategoryDao categoryDao = new CategoryDaoImpl();
+    private JedisDao jedisDao = new JedisDaoImpl();
 
-    /**
-     * @description 获得所有的商品类别, 保存到redis中或从中获取
-     * @author porkchop
-     * @date 2017/9/24 11:47
-     */
+
     @Override
     public String findAllCategories() {
         try {
             String categoriesJson = jedisDao.findAllCategoriesJson();
             if (categoriesJson == null) {
-                System.out.println("没有缓存");
                 List<Category> list = categoryDao.findAllCategories();
                 Gson gson = new Gson();
                 categoriesJson = gson.toJson(list);
@@ -38,5 +33,40 @@ public class CategoryServiceImpl implements CategoryService {
         return null;
     }
 
+    @Override
+    public boolean updateCategoryById(Category category) {
+        try {
+            int i = categoryDao.updateCategoryById(category);
+            jedisDao.delCategoryJson();
+            return i < 1 ? false : true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean delCategoryById(String cid) {
+        try {
+            int i = categoryDao.delCategoryById(cid);
+            jedisDao.delCategoryJson();
+            return i<1?false:true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean addCategory(Category category) {
+        try {
+            int i = categoryDao.addCategory(category);
+            jedisDao.delCategoryJson();
+            return i<1?false:true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
 }

@@ -15,6 +15,10 @@
         <filter-name>JSPFilter</filter-name>
         <filter-class>cn.porkchop.filter.JSPFilter</filter-class>
     </filter>
+    <filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>cn.porkchop.filter.AdminFilter</filter-class>
+    </filter>
     <filter-mapping>
         <filter-name>EncodeFilter</filter-name>
         <url-pattern>/*</url-pattern>
@@ -22,6 +26,13 @@
     <filter-mapping>
         <filter-name>LoginFilter</filter-name>
         <url-pattern>/loginrequired/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-name>AddProductServlet</servlet-name>
+        <servlet-name>EditProductServlet</servlet-name>
     </filter-mapping>
     <filter-mapping>
         <filter-name>JSPFilter</filter-name>
@@ -55,6 +66,30 @@
         <servlet-name>OrderServlet</servlet-name>
         <servlet-class>cn.porkchop.servlet.loginrequired.OrderServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-class>cn.porkchop.servlet.AdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddProductServlet</servlet-name>
+        <servlet-class>cn.porkchop.servlet.AddProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditProductServlet</servlet-name>
+        <servlet-class>cn.porkchop.servlet.EditProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditProductServlet</servlet-name>
+        <url-pattern>/editProduct.php</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProductServlet</servlet-name>
+        <url-pattern>/addProductServlet.php</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminServlet</servlet-name>
+        <url-pattern>/admin.php</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register.php</url-pattern>

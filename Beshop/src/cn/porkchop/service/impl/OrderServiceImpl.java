@@ -11,18 +11,15 @@ import org.apache.commons.beanutils.BeanUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class OrderServiceImpl implements OrderService {
-    OrderDao orderDao = new OrderDaoImpl();
-    OrderItemDao orderItemDao = new orderItemDaoImpl();
+    private OrderDao orderDao = new OrderDaoImpl();
+    private OrderItemDao orderItemDao = new orderItemDaoImpl();
 
-    /**
-     * @description 插入订单与订单项
-     * @author porkchop
-     * @date 2017/9/27 12:50
-     */
+
     @Override
     public boolean insertOrder(Order order) {
         try {
@@ -50,11 +47,7 @@ public class OrderServiceImpl implements OrderService {
         return false;
     }
 
-    /**
-     * @description 改变订单的地址, 收货人, 电话
-     * @author porkchop
-     * @date 2017/9/27 21:40
-     */
+
     @Override
     public boolean updateOrder(Order order) {
         try {
@@ -66,11 +59,7 @@ public class OrderServiceImpl implements OrderService {
         return false;
     }
 
-    /**
-     * @description 根据订单号修改订单状态
-     * @author porkchop
-     * @date 2017/9/29 19:30
-     */
+
     @Override
     public boolean updateOrderStateById(String r6_order) {
 
@@ -83,17 +72,13 @@ public class OrderServiceImpl implements OrderService {
         return false;
     }
 
-    /**
-     * @description 分页查询order, 并且封装product和orderitem
-     * @author porkchop
-     * @date 2017/9/29 20:25
-     */
+
     @Override
     public PageBean<Order> getMyOrdersByPagination(User user, PageBean<Order> pageBean) throws InvocationTargetException, IllegalAccessException {
         try {
-            pageBean.setTotalCount((int)orderDao.findMyOrderCount(user));
+            pageBean.setTotalCount((int) orderDao.findMyOrderCount(user));
             pageBean.setCurrentCount(4);
-            pageBean.setTotalPage((int) Math.ceil(     pageBean.getTotalCount()*1.0/pageBean.getCurrentCount()        ));
+            pageBean.setTotalPage((int) Math.ceil(pageBean.getTotalCount() * 1.0 / pageBean.getCurrentCount()));
             List<Order> orderList = orderDao.findMyOrdersByPagination(user, pageBean);
             pageBean.setList(orderList);
             for (Order order : orderList) {
@@ -113,4 +98,41 @@ public class OrderServiceImpl implements OrderService {
         }
         return null;
     }
+
+    @Override
+    public List<OrderItem> findOrderItemsByOid(String oid) throws InvocationTargetException, IllegalAccessException {
+        try {
+            List<OrderItem> list = new ArrayList<>();
+            List<Map<String, Object>> mapList = orderItemDao.findOrderItemByOrderId(oid);
+            for (Map<String, Object> map : mapList) {
+                OrderItem orderItem = new OrderItem();
+                Product product = new Product();
+                orderItem.setProduct(product);
+                //封装到对象中
+                BeanUtils.populate(orderItem, map);
+                BeanUtils.populate(product, map);
+                list.add(orderItem);
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    @Override
+    public PageBean<Order> findOrderByPagination(PageBean<Order> pageBean) {
+        try {
+            pageBean.setTotalCount((int) orderDao.findAllOrderCount());
+            pageBean.setTotalPage((int) Math.ceil((double) pageBean.getTotalCount() / pageBean.getCurrentCount()));
+            List<Order> list = orderDao.findOrderByPagination(pageBean);
+            pageBean.setList(list);
+            return pageBean;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

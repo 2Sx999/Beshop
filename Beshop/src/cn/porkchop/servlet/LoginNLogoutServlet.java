@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class LoginNLogoutServlet extends BaseServlet {
-    LoginService loginService = new LoginServiceImpl();
+    private LoginService loginService = new LoginServiceImpl();
 
     /**
      * @description 登陆
@@ -58,6 +58,9 @@ public class LoginNLogoutServlet extends BaseServlet {
                 Cookie cookie = new Cookie("JSESSIONID", session.getId());
                 cookie.setMaxAge(7 * 24 * 60 * 60);
                 response.addCookie(cookie);
+            }
+            if("admin".equals(u.getUsername())){
+                return "redirect:/admin/home";
             }
             response.sendRedirect(request.getContextPath() +"/index.php");
             return null;

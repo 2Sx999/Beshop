@@ -10,11 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @description  插入订单项,由service层关闭连接
- * @author porkchop
- * @date 2017/9/27 13:14
- */
+
 public class orderItemDaoImpl implements OrderItemDao {
     @Override
     public int insertOrderItem(OrderItem orderItem) throws SQLException {

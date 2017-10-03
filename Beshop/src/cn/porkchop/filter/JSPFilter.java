@@ -38,8 +38,20 @@ public class JSPFilter implements Filter {
         list.add("login");
         list.add("paymentSuccess");
         list.add("register");
-        list.add("registerFail");
-        list.add("registerSuccess");
+        list.add("admin/registerFail");
+        list.add("admin/category/add");
+        list.add("admin/category/edit");
+        list.add("admin/category/list");
+        list.add("admin/product/add");
+        list.add("admin/product/edit");
+        list.add("admin/product/list");
+        list.add("admin/order/list");
+        list.add("admin/bottom");
+        list.add("admin/home");
+        list.add("admin/index");
+        list.add("admin/left");
+        list.add("admin/top");
+        list.add("admin/welcome");
     }
 
 }

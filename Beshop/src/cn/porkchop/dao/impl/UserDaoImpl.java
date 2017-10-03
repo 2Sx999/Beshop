@@ -11,11 +11,7 @@ import org.apache.commons.dbutils.handlers.ScalarHandler;
 import java.sql.SQLException;
 
 public class UserDaoImpl implements UserDao {
-    /**
-     * @description  查找用户名是否曾在
-     * @author porkchop
-     * @date 2017/9/22 9:47
-     */
+
     @Override
     public long findUserByUsername(String username) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(DataSourceUtils.getDataSource());
@@ -23,11 +19,7 @@ public class UserDaoImpl implements UserDao {
         long count = (long) queryRunner.query(sql, new ScalarHandler(1), username);
         return count;
     }
-    /**
-     * @description  插入user的数据
-     * @author porkchop
-     * @date 2017/9/22 9:49
-     */
+
     @Override
     public int insertAll(User user) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(DataSourceUtils.getDataSource());
@@ -35,11 +27,7 @@ public class UserDaoImpl implements UserDao {
         int update = queryRunner.update(sql, user.getUid(), user.getUsername(), Md5Utils.encode(user.getPassword()), user.getName(), user.getEmail(), user.getTelephone(), user.getBirthday(), user.getSex(), user.getState(), user.getCode());
         return update;
     }
-    /**
-     * @description  根据激活码更改用户状态
-     * @author porkchop
-     * @date 2017/9/22 9:49
-     */
+
     @Override
     public int updateUserStateByCode(String code) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(DataSourceUtils.getDataSource());
@@ -49,11 +37,7 @@ public class UserDaoImpl implements UserDao {
 
     }
 
-    /**
-     * @description  登陆,返回用户信息
-     * @author porkchop
-     * @date 2017/9/21 21:04
-     */
+
     @Override
     public User login(User user) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(DataSourceUtils.getDataSource());
@@ -62,11 +46,7 @@ public class UserDaoImpl implements UserDao {
         return u;
     }
 
-    /**
-     * @description  根据用户名查询用户状态
-     * @author porkchop
-     * @date 2017/9/21 21:04
-     */
+
     @Override
     public long findStateByUsername(User user) throws SQLException {
         QueryRunner queryRunner = new QueryRunner(DataSourceUtils.getDataSource());

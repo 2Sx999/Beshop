@@ -10,12 +10,8 @@ import cn.porkchop.service.LoginService;
 import java.sql.SQLException;
 
 public class LoginServiceImpl implements LoginService {
-    UserDao userDao = new UserDaoImpl();
-    /**
-     * @description  登陆
-     * @author porkchop
-     * @date 2017/9/21 19:25
-     */
+    private UserDao userDao = new UserDaoImpl();
+
     @Override
     public User login(User user) throws EmailInactivatedException, WrongUorPException {
         try {
@@ -34,7 +30,7 @@ public class LoginServiceImpl implements LoginService {
 
     }
     /**
-     * @description  检查账号是否激活
+     * 检查账号是否激活
      * @return true为激活 ,false未激活
      * @author porkchop
      * @date 2017/9/21 20:16
