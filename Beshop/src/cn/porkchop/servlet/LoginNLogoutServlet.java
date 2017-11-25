@@ -10,6 +10,7 @@ import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
 import org.apache.commons.beanutils.BeanUtils;
 
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -191,9 +192,9 @@ public class LoginNLogoutServlet extends BaseServlet {
         }
         // 将上面图片输出到浏览器 ImageIO
         graphics.dispose();// 释放资源
-        //ImageIO.write(bufferedImage, "jpg", response.getOutputStream());
-        JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(response.getOutputStream());
-        encoder.encode(bufferedImage);
+        ImageIO.write(bufferedImage, "jpg", response.getOutputStream());
+//        JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(response.getOutputStream());
+//        encoder.encode(bufferedImage);
         return word;
     }
 
