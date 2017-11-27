@@ -21,14 +21,14 @@ import java.util.Map;
 
 /**
  * @author porkchop
- * @description 注册页面使用
+ * 注册页面使用
  * @date 2017/9/20 21:45
  */
 public class RegisterServlet extends BaseServlet {
     private RegisterService registerService = new RegisterServiceImpl();
 
     /**
-     * @description
+     *
      * @author porkchop
      * @date 2017/9/20 22:56
      */
@@ -75,7 +75,7 @@ public class RegisterServlet extends BaseServlet {
     }
 
     /**
-     * @description 验证用户名是否存在
+     * 验证用户名是否存在
      * @author porkchop
      * @date 2017/9/20 23:00
      */

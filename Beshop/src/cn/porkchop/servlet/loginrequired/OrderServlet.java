@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 public class OrderServlet extends BaseServlet {
     OrderService orderService = new OrderServiceImpl();
     /**
-     * @description  分页获取所有订单
+     * 分页获取所有订单
      * @author porkchop
      * @date 2017/9/29 19:29
      */
@@ -37,7 +37,7 @@ public class OrderServlet extends BaseServlet {
     }
 
     /**
-     * @description 提交订单
+     * 提交订单
      * @author porkchop
      * @date 2017/9/27 12:50
      */
@@ -56,7 +56,7 @@ public class OrderServlet extends BaseServlet {
     }
 
     /**
-     * @description 把购物车中的对象内容封装到订单中
+     * 把购物车中的对象内容封装到订单中
      * @author porkchop
      * @date 2017/9/27 12:50
      */
@@ -82,7 +82,7 @@ public class OrderServlet extends BaseServlet {
     }
 
     /**
-     * @description 确认订单, 并且跳转到支付页面
+     * 确认订单, 并且跳转到支付页面
      * @author porkchop
      * @date 2017/9/27 21:40
      */

@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * @author porkchop
  * @date 2017/10/3 15:20
- * @description 添加商品(包括文件上传)
+ * 添加商品(包括文件上传)
  */
 public class AddProductServlet extends HttpServlet {
     ProductService productService = new ProductServiceImpl();

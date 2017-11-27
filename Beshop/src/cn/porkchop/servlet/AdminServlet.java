@@ -24,7 +24,7 @@ public class AdminServlet extends BaseServlet {
     private OrderService orderService=new OrderServiceImpl();
 
     /**
-     * @description 用json传过去所有的类别
+     * 用json传过去所有的类别
      * @author porkchop
      * @date 2017/10/2 21:39
      */
@@ -36,7 +36,7 @@ public class AdminServlet extends BaseServlet {
     }
 
     /**
-     * @description 根据id修改
+     * 根据id修改
      * @author porkchop
      * @date 2017/10/2 21:39
      */

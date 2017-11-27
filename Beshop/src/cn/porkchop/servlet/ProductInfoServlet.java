@@ -22,7 +22,7 @@ public class ProductInfoServlet extends BaseServlet {
     private CategoryService categoryService = new CategoryServiceImpl();
 
     /**
-     * @description 显示产品信息, 通过id
+     * 显示产品信息, 通过id
      * @author porkchop
      * @date 2017/9/23 20:35
      */
@@ -40,7 +40,7 @@ public class ProductInfoServlet extends BaseServlet {
     }
 
     /**
-     * @description 把历史记录的list存放在session中, 并且当作队列来操作
+     * 把历史记录的list存放在session中, 并且当作队列来操作
      * @author porkchop
      * @date 2017/9/24 21:45
      */
@@ -67,7 +67,7 @@ public class ProductInfoServlet extends BaseServlet {
     }
 
     /**
-     * @description 添加购物车
+     * 添加购物车
      * @author porkchop
      * @date 2017/9/26 9:57
      */
@@ -84,7 +84,7 @@ public class ProductInfoServlet extends BaseServlet {
     }
 
     /**
-     * @description 把商品放到session中的购物车中
+     * 把商品放到session中的购物车中
      * @author porkchop
      * @date 2017/9/26 9:57
      */
@@ -114,7 +114,7 @@ public class ProductInfoServlet extends BaseServlet {
         cart.setTotal(cart.getTotal() + quantity * product.getShop_price());
     }
     /**
-     * @description  删除购物车的单项商品
+     *  删除购物车的单项商品
      * @author porkchop
      * @date 2017/9/26 13:03
      */

@@ -10,12 +10,12 @@ import java.lang.reflect.Method;
 
 /**
  * @author porkchop
- * @description 让所有servlet集成此类
+ * 让所有servlet集成此类
  * @date 2017/9/20 21:17
  */
 public class BaseServlet extends HttpServlet {
     /**
-     * @description 重写service方法, 通过method的参数, 反射调用对应的方法, 再根据返回值判断转发还是重定向, 像springmvc一样
+     * 重写service方法, 通过method的参数, 反射调用对应的方法, 再根据返回值判断转发还是重定向, 像springmvc一样
      * @author porkchop
      * @date 2017/9/20 21:18
      */

@@ -15,7 +15,7 @@ public class ProductListServlet extends BaseServlet {
     private ProductService productService = new ProductServiceImpl();
 
     /**
-     * @description 商品分页通过类别
+     * 商品分页通过类别
      * @author porkchop
      * @date 2017/9/24 15:10
      */
@@ -35,7 +35,7 @@ public class ProductListServlet extends BaseServlet {
     }
 
     /**
-     * @description 一次显示5条的页数, 小于1大于总页数, 则删除
+     * 一次显示5条的页数, 小于1大于总页数, 则删除
      * @author porkchop
      * @date 2017/9/24 17:01
      */

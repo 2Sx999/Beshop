@@ -14,7 +14,7 @@ import java.util.List;
 public class IndexServlet extends HttpServlet {
     private ProductService productService = new ProductServiceImpl();
     /**
-     * @description  跳转到主页面,把热门商品和最新商品显示
+     *  跳转到主页面,把热门商品和最新商品显示
      * @author porkchop
      * @date 2017/9/23 18:31
      */

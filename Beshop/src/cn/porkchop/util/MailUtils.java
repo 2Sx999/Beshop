@@ -13,14 +13,14 @@ import java.util.Properties;
 
 public class MailUtils {
     /**
-     * @param fromEmail 发送者的邮箱
-     * @param toEmail   接受者的邮箱
-     * @param emailHTMLMsg  发送的html代码
-     * @param password 发送者的邮箱密码或者授权码
+     * @param fromEmail    发送者的邮箱
+     * @param toEmail      接受者的邮箱
+     * @param emailHTMLMsg 发送的html代码
+     * @param password     发送者的邮箱密码或者授权码
      * @author porkchop
      * @date 2017/9/21 14:55
      */
-    public static boolean sendMail(String fromEmail, String password, String toEmail, String emailHTMLMsg)  {
+    public static boolean sendMail(String fromEmail, String password, String toEmail, String emailHTMLMsg) {
 
         try {
             //定义Properties对象,设置环境信息
@@ -70,5 +70,4 @@ public class MailUtils {
         return false;
     }
 }
-
 

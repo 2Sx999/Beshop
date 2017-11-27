@@ -32,7 +32,7 @@ public class LoginNLogoutServlet extends BaseServlet {
     private LoginService loginService = new LoginServiceImpl();
 
     /**
-     * @description 登陆
+     * 登陆
      * @author porkchop
      * @date 2017/9/21 19:14
      */
@@ -83,7 +83,7 @@ public class LoginNLogoutServlet extends BaseServlet {
     }
 
     /**
-     * @description 登出账户
+     * 登出账户
      * @author porkchop
      * @date 2017/9/22 21:32
      */
@@ -97,7 +97,7 @@ public class LoginNLogoutServlet extends BaseServlet {
     private List<String> words = new ArrayList<String>();
 
     /**
-     * @description 初始化文件中的验证码到list中
+     * 初始化文件中的验证码到list中
      * @author porkchop
      * @date 2017/9/22 11:47
      */
@@ -119,7 +119,7 @@ public class LoginNLogoutServlet extends BaseServlet {
     }
 
     /**
-     * @description 生成验证码图片, 并且放到session域中
+     * 生成验证码图片, 并且放到session域中
      * @author porkchop
      * @date 2017/9/22 21:31
      */
@@ -131,7 +131,7 @@ public class LoginNLogoutServlet extends BaseServlet {
 
     /**
      * @return 返回验证码的文字
-     * @description 获得验证码
+     * 获得验证码
      * @author porkchop
      * @date 2017/9/22 11:46
      */

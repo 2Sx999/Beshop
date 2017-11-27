@@ -18,7 +18,6 @@
                     <li><a href="${pageContext.request.contextPath}/cart.jsp">购物车</a></li>
                     <li><a href="${pageContext.request.contextPath}/loginrequired/order.php?method=getMyOrders">我的订单</a></li>
                     <li><a href="${pageContext.request.contextPath}/loginandlogout.php?method=logout">退出</a></li>
-
                 </c:if>
             </ul>
         </div>
@@ -43,7 +42,7 @@
             </ul>
             <script>
                 $.ajax({
-                    asyn:false,
+                    asyn: false,
                     url: "${pageContext.request.contextPath}/category.php",
                     data: {method: "showHeaderCategories"},
                     type: "POST",
@@ -60,7 +59,7 @@
                     "dataType": "json"
                 });
             </script>
-            <form class="navbar-form navbar-right">
+<%--            <form class="navbar-form navbar-right">
                 <div class="form-group">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="请输入需要查找的商品">
@@ -69,7 +68,7 @@
                         </span>
                     </div>
                 </div>
-            </form>
+            </form>--%>
         </div>
     </div>
 </nav>

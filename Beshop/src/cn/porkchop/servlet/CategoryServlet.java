@@ -10,7 +10,7 @@ import java.io.IOException;
 public class CategoryServlet extends BaseServlet {
     private CategoryService categoryService = new CategoryServiceImpl();
     /**
-     * @description  获取head.jsp中商品类别信息
+     *  获取head.jsp中商品类别信息
      * @author porkchop
      * @date 2017/10/1 21:09
      */
