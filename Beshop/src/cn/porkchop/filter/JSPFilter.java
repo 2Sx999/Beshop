@@ -52,6 +52,8 @@ public class JSPFilter implements Filter {
         list.add("admin/left");
         list.add("admin/top");
         list.add("admin/welcome");
+        list.add("admin/registerFail");
+        list.add("admin/registerSuccess");
     }
 
 }
